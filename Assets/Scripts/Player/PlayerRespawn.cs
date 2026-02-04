@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpoint;
+    [SerializeField] private Transform startWallPoint;
     private Transform currentCheckpoint;
     private Health playerHealth;
     private UIManager uiManager;
@@ -12,7 +13,12 @@ public class PlayerRespawn : MonoBehaviour
         playerHealth = GetComponent<Health>();
         uiManager = FindObjectOfType<UIManager>();
     }
-
+    public void RespawnByFall()
+    {
+       
+        transform.position = startWallPoint.position;   // always start wall
+        Camera.main.GetComponent<CameraController>().MoveToNewRoom(startWallPoint.parent);
+    }
     public void RespawnCheck()
     {
         if (currentCheckpoint == null) 

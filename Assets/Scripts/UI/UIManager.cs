@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
     [Header ("Game Over")]
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private AudioClip gameOverSound;
+    [SerializeField] private GameObject gameWin;
 
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour
     {
         gameOverScreen.SetActive(false);
         pauseScreen.SetActive(false);
+        gameWin.SetActive(false);
     }
     private void Update()
     {
